@@ -42,3 +42,36 @@ To run predefined test set use:
 ```bash
 php vendor/bin/phpunit
 ```
+
+## Usage
+Example payment controller implementation:
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use CashBill;
+use Adams\CashBill\Payment;
+use App\Http\Controllers\Controller;
+
+class ExampleController extends Controller
+{
+    /**
+     * Redirect user to payment provider.
+     *
+     * @return Response
+     */
+    public function pay()
+    {
+        $payment = new Payment();
+        $payment->setTitle('Title');
+        $payment->setDescription('My item description');
+        $payment->setData('... additional transaction data ...');
+        
+        // Currency code is set from 'payment_defaults.currency_code' in config file.
+        $payment->setAmount(10); 
+
+        return CashBill::redirect($payload);
+    }
+}
+```
