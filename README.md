@@ -35,7 +35,11 @@ protected $except = [
 ```
 
 ## Environment
-@TODO
+You can setup these environment variables to configure CashBill API access:
+- `CASHBILL_MODE` - Current API mode, by default this value is set to `sandbox` to test implementation. On production you need to set this value to `live`,
+- `CASHBILL_SHOP_ID` - Your shop identifier received from payment provider,
+- `CASHBILL_TOKEN` - Random string received from payment provider to sign API requests,
+- `CASHBILL_CURRENCY_CODE` _(optional)_ - Default currency code for payments (default currency code: PLN).
 
 ## Testing
 To run predefined test set use:
