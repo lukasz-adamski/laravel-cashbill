@@ -78,7 +78,7 @@ class PaymentData
     /**
      * Check if status is equal to argument.
      * 
-     * @param string
+     * @param string $status
      * @return bool
      */
     public function isStatus($status)
