@@ -134,13 +134,13 @@ class CashBill
     /**
      * Sign given fields using token.
      * 
-     * @param array|string $fields
+     * @param array|string $payload
      * @return string
      */
     public function sign($payload)
     {
         if (is_array($payload)) {
-            $payload = join('', $fields);
+            $payload = join('', $payload);
         }
 
         return sha1($payload . $this->getToken());
@@ -199,7 +199,7 @@ class CashBill
      * Register new payment for shop and generate
      * redirect response.
      * 
-     * @param array|Payment $fields
+     * @param array|Payment $payment
      * @return \Illuminate\Http\Response
      */
     public function redirect($payment)
